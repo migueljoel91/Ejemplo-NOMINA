@@ -43,7 +43,7 @@
                 <!-- COLUMNA 3 -->
                 <div class="resultado">
                     <label for="totalDevengos">Total devengado:</label>
-                    <input type="number" id="totalDevengos" name="totalDevengos" readonly>
+                    <input type="text" id="totalDevengos" name="totalDevengos" readonly>
                 </div>
             </fieldset>
         </form>
@@ -65,20 +65,20 @@
                         </div>
 
                     <label for="impuestos">IRPF (%):</label>
-                    <input type="number" id="impuestos" name="impuestos" min="0" required>
+                    <input type="number" id="impuestos" name="impuestos" min="0" step="any" required>
                 </div>
                 <!-- COLUMNA 2 -->
-                <button type="submit">Calcular total deducciones</button>
+                <button type="submit" id="botonDeducciones">Calcular total deducciones</button>
 
                 <!-- COLUMNA 3 -->
                 <div class="resultado">
                     <label for="totalDeducciones">Total deducido:</label>
-                    <input type="number" id="totalDeducciones" name="totalDeducciones" readonly>
+                    <input type="text" id="totalDeducciones" name="totalDeducciones" readonly>
                 </div>
             </fieldset>
         </form>
         <div class="boton">
-            <button type="button">TOTAL LÍQUIDO</button>
+            <button type="button" id="botonLiquido">TOTAL LÍQUIDO</button>
             <p class="oculto" hidden>1.065 €</p>
         </div>
 
