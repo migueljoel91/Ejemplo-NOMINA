@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ejemplo de nómina">
+    <title>Ejemplo de Nómina</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Calcula tu Nómina</h1>
+    </header>
+
+    <main>
+        <form id="devengos">
+            <fieldset class="devengos">
+                <legend>Devengos</legend>
+                <!-- COLUMNA 1 -->
+                <div class="campos">
+                    <label for="salario">Salario Base mensual:</label>
+                    <input type="number" id="salario" name="salario" min="600" max="10000" step="any" required>
+
+                    <label for="plusResidencia">Plus de Residencia:</label>
+                    <input type="number" id="plusResidencia" name="plusResidencia" step="any" min="0">
+
+                    <label for="complemento">Comp. Consolidado:</label>
+                    <input type="number" id="complemento" name="complemento" step="any" min="0">
+
+                    <label for="especialidad">Especialidad:</label>
+                    <input type="number" id="especialidad" name="especialidad" step="any" min="0">
+
+                    <label for="sgm">SGM:</label>
+                    <input type="number" id="sgm" name="sgm" step="any" min="0">
+                </div>
+
+                <!-- COLUMNA 2  -->
+                <div>
+                <button type="submit" id="botonDevengos">Calcular total devengos</button>
+                </div>
+
+                <!-- COLUMNA 3 -->
+                <div class="resultado">
+                    <label for="totalDevengos">Total devengado:</label>
+                    <input type="number" id="totalDevengos" name="totalDevengos" readonly>
+                </div>
+            </fieldset>
+        </form>
+        
+        <form>
+            <fieldset class="devengos">
+                <legend>Deducciones</legend>
+                <!-- COLUMNA 1 -->
+                <div class="campos">
+                    <label for="seguridadSocial">Seguridad Social (€):</label>
+                        <div class="campo-ayuda">
+                            <input type="number" id="seguridadSocial" name="seguridadSocial" readonly>
+
+                            <span class="ayuda" tabindex="0" aria-describedby="tooltip-ss">?
+                                <span class="tooltip" id="tooltip-ss" role="tooltip">
+                                    Se calcula aplicando los porcentajes de cotización del trabajador sobre tu base de cotización: contingencias comunes <strong>(4,70%)</strong>, desempleo <strong>(1,55%)</strong>, formación profesional <strong>(0,10%)</strong> y MEI <strong>(0,15%)</strong>.
+                                </span>
+                            </span>
+                        </div>
+
+                    <label for="impuestos">IRPF (%):</label>
+                    <input type="number" id="impuestos" name="impuestos" min="0" required>
+                </div>
+                <!-- COLUMNA 2 -->
+                <button type="submit">Calcular total deducciones</button>
+
+                <!-- COLUMNA 3 -->
+                <div class="resultado">
+                    <label for="totalDeducciones">Total deducido:</label>
+                    <input type="number" id="totalDeducciones" name="totalDeducciones" readonly>
+                </div>
+            </fieldset>
+        </form>
+        <div class="boton">
+            <button type="button">TOTAL LÍQUIDO</button>
+            <p class="oculto" hidden>1.065 €</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Copyright. Todos los derechos reservados. Cálculo de nómina.</p>
+    </footer>
+</body>
+</html>
