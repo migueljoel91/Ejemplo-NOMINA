@@ -56,13 +56,13 @@ function calcularDeducciones() {
 botonDeducciones.addEventListener("click", calcularDeducciones);
 
 // CALCULO TOTAL LIQUIDO
-const botonTotalLiquido = document.querySelector('.boton button');
-const parrafoTotalLiquido = document.querySelector('.boton p');
+const botonLiquido = document.getElementById('botonLiquido');
+const parrafoLiquido = document.querySelector('.oculto');
 
-botonTotalLiquido.addEventListener("click", () => {
+botonLiquido.addEventListener("click", () => {
     const totalDevengos = obtenerTotalDevengos();
     const totalDeducciones = Number(SS.value) + totalDevengos * (Number(IRPF.value) / 100);
     const totalLiquido = totalDevengos - totalDeducciones;
-    parrafoTotalLiquido.textContent = totalLiquido.toFixed(2) + " €";
-    parrafoTotalLiquido.hidden = false;
+    parrafoLiquido.textContent = totalLiquido.toFixed(2) + " €";
+    parrafoLiquido.hidden = false;
 });
