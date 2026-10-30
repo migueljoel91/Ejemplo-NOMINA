@@ -25,14 +25,19 @@ const botonDeducciones = document.getElementById('botonDeducciones');
 
 
 // CALCULOS DEVENGOS
+// Creamos la función reutilizable con el total devengado
 
-// Devuelve el número (sin formato), para poder reutilizarlo
 function obtenerTotalDevengos() {
     return Number(salario.value) + Number(plusResidencia.value) + Number(complemento.value) + Number(especialidad.value) + Number(sgm.value);
 }
 
-
 function calcularDevengos() {
+    if (salario.value === "") {
+        document.getElementById('totalDevengos').value = "";
+        SS.value = "";
+        return;
+    }
+
     const totalDevengos = obtenerTotalDevengos();
     const baseCotizacion = totalDevengos + prorrataPagasExtra + prorrataBolsaVacaciones;
 
@@ -45,23 +50,35 @@ botonDevengos.addEventListener("click", calcularDevengos);
 
 
 //CALCULO DEDUCCIONES
-function calcularDeducciones() {
-    const totalDevengos = obtenerTotalDevengos()
-    const retencionIRPF = totalDevengos * (Number(IRPF.value) / 100);
-    const totalDeducciones = Number(SS.value) + retencionIRPF;
+// Creamos la función reutilizable con el total deducido
 
+function obtenerTotalDeducciones() {
+    return Number(SS.value) + obtenerTotalDevengos() * (Number(IRPF.value) / 100);
+}
+
+function calcularDeducciones() {
+    if(IRPF.value === ""){
+        document.getElementById('totalDeducciones').value = "";
+        return;
+    }
+    const totalDeducciones = obtenerTotalDeducciones();
     document.getElementById('totalDeducciones').value = totalDeducciones.toFixed(2) + " €";
 }
 
 botonDeducciones.addEventListener("click", calcularDeducciones);
 
 // CALCULO TOTAL LIQUIDO
+
 const botonLiquido = document.getElementById('botonLiquido');
 const parrafoLiquido = document.querySelector('.oculto');
 
 botonLiquido.addEventListener("click", () => {
+    if (salario.value === "" || IRPF.value === "") {
+        parrafoLiquido.hidden = true;
+        return;
+    }
     const totalDevengos = obtenerTotalDevengos();
-    const totalDeducciones = Number(SS.value) + totalDevengos * (Number(IRPF.value) / 100);
+    const totalDeducciones = obtenerTotalDeducciones();
     const totalLiquido = totalDevengos - totalDeducciones;
     parrafoLiquido.textContent = totalLiquido.toFixed(2) + " €";
     parrafoLiquido.hidden = false;
