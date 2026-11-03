@@ -253,4 +253,9 @@ footer {
         position: static;         /* vuelve al flujo normal y deja de solaparse */
         margin-bottom: 0;
     }
+
+    #botonTema {
+        position: static;
+        margin-top: 2rem;
+    }
 }
