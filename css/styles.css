@@ -237,7 +237,7 @@ footer {
 
 /* PANTALLAS PEQUEÑAS Y MOVILES */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     fieldset {
         grid-template-columns: 1fr;
         justify-items: start;
@@ -257,5 +257,6 @@ footer {
     #botonTema {
         position: static;
         margin-top: 2rem;
+        transform: none;
     }
 }
