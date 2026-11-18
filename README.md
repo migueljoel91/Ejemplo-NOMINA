@@ -48,15 +48,10 @@ Ejemplo-NOMINA/
 ## Cómo usarlo
 
 1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/migueljoel91/Ejemplo-NOMINA.git
-   ```
+    ```bash
+    git clone https://github.com/migueljoel91/Ejemplo-NOMINA.git
+    ```
 2. Abre `index.html` en el navegador.
 3. Rellena los devengos y pulsa **Calcular total devengos**.
 4. Escribe tu % de IRPF y pulsa **Calcular total deducciones**.
 5. Pulsa **TOTAL LÍQUIDO** para ver lo que cobras.
-
-
-## Autor
-
-Miguel Joel — [GitHub](https://github.com/migueljoel91)
